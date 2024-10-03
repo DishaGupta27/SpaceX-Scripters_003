@@ -141,10 +141,10 @@
             // Show popup for successful user creation
             alert(`User created successfully! Your assigned user ID is: ${newUserId}`);
 
-            // Refresh the page after user creation
+            // Redirect to the sign-in page after user creation
             setTimeout(() => {
-                window.location.reload();
-            }, 2000);  // 2-second delay before refreshing the page
+                window.location.href = "signin.html";  // Redirect to signin.html
+            }, 1000);  // 2-second delay before redirecting
 
         } catch (error) {
             alert(error.message);
@@ -169,9 +169,8 @@
         }
     }
 
- // To redirect to sign in page
-
- document.getElementById("signInLink").onclick = function(event) {
+    // To redirect to sign in page
+    document.getElementById("signInLink").onclick = function(event) {
         event.preventDefault();  // Prevent the default link behavior
         window.location.href = "signin.html";  // Redirect to signin.html
     };

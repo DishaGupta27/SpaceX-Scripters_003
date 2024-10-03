@@ -1,4 +1,4 @@
-/* Basic reset for margin and padding */
+/* Reset default browser styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,93 +6,168 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-h1 {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7fa;
     color: #333;
-    margin-bottom: 20px;
-    font-size: 2rem;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
 }
 
-/* Styling the input and button */
-input[type="text"] {
-    padding: 10px;
-    font-size: 1rem;
-    width: 300px;
+/* Main container styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #34495e;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Input container styling */
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.input-container input,
+.input-container select {
+    width: calc(50% - 15px);
+    padding: 12px;
     border: 2px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
+    border-radius: 8px;
+    font-size: 1.1rem;
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus {
-    border-color: #4CAF50;
+.input-container label {
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #4CAF50;
+.input-container input:focus,
+.input-container select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.input-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
+}
+
+.input-container button:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Search, sort, filter container styling */
+.search-sort-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.search-sort-filter input,
+.search-sort-filter select,
+.search-sort-filter button {
+    width: calc(33% - 15px);
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 1.1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-sort-filter input:focus,
+.search-sort-filter select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.search-sort-filter button {
+    background-color: #2ecc71;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
 }
 
-button:hover {
-    background-color: #45a049;
+.search-sort-filter button:hover {
+    background-color: #27ae60;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling the task list */
+/* Task list styling */
 ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 400px;
 }
 
-li {
-    background-color: white;
+#taskList li {
+    background-color: #f9f9f9;
     padding: 15px;
     margin-bottom: 10px;
-    border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-li span {
-    flex: 1;
-    margin-left: 10px;
+#taskList li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+#taskList li span {
     font-size: 1rem;
+    flex-grow: 1;
+    margin-left: 10px;
 }
 
-li.completed span {
+.completed span {
     text-decoration: line-through;
-    color: #999;
+    color: #7f8c8d;
 }
 
-button.remove {
-    background-color: #ff4d4d;
-}
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .input-container input,
+    .input-container select,
+    .search-sort-filter input,
+    .search-sort-filter select,
+    .search-sort-filter button {
+        width: 100%;
+    }
 
-button.remove:hover {
-    background-color: #e60000;
-}
+    .input-container {
+        gap: 20px;
+    }
 
-/* Checkbox styling */
-input[type="checkbox"] {
-    transform: scale(1.5);
-    cursor: pointer;
+    .search-sort-filter {
+        gap: 20px;
+    }
 }

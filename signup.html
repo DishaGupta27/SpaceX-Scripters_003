@@ -71,7 +71,7 @@
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
     import { getDatabase, ref, set, get, update, remove } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
 
-    // Your Firebase configuration
+    // Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyCpHkzs4o4iW_XVrHiQjnUbi3EgOlvAJGQ",
         authDomain: "task-management-f8ae5.firebaseapp.com",
@@ -82,18 +82,17 @@
         appId: "1:94289548334:web:f389a4d14b64ae4da63bbf"
     };
 
-    // Initialize Firebase
+    // Initialize Firebase services
     const app = initializeApp(firebaseConfig);
-
-    // Initialize Firebase Authentication and Realtime Database
     const auth = getAuth(app);
     const database = getDatabase(app);
 
-    // Signup Functionality
+    // Event listener for signup form submission
     document.querySelector("#signupForm").addEventListener("submit", signUp);
 
+    // Sign-up function
     async function signUp(event) {
-        event.preventDefault();
+        event.preventDefault();  // Prevent page refresh
 
         // Collect form data
         let firstName = document.querySelector("#firstName").value;
@@ -102,7 +101,7 @@
         let password = document.querySelector("#password").value;
         let confirmPassword = document.querySelector("#confirm-password").value;
 
-        // Basic validation
+        // Simple validation checks
         if (!firstName || !lastName || !email || !password || !confirmPassword) {
             alert("All fields are required.");
             return;
@@ -114,52 +113,47 @@
         }
 
         try {
-            // Get the current user ID count from the Realtime Database
+            // Fetch the current user ID from the database
             const userIdRef = ref(database, 'userIds/currentId');
             let userIdSnapshot = await get(userIdRef);
 
-            let newUserId;
-            if (userIdSnapshot.exists()) {
-                newUserId = userIdSnapshot.val() + 1; // Increment user ID
-            } else {
-                newUserId = 1; // Start from 1 if no user ID exists
-            }
+            // Determine the new user ID
+            let newUserId = userIdSnapshot.exists() ? userIdSnapshot.val() + 1 : 1;
 
-            // Create user with Firebase Authentication
+            // Create user using Firebase Authentication
             await createUserWithEmailAndPassword(auth, email, password);
 
-            // Store user details with a custom userId in Realtime Database
+            // Store user details in Realtime Database
             await set(ref(database, 'users/' + newUserId), {
                 firstName: firstName,
                 lastName: lastName,
                 email: email
             });
 
-            // Update the current user ID count in the database
+            // Update the current user ID in the database
             await update(ref(database, 'userIds'), { currentId: newUserId });
 
-            // Show popup for successful user creation
             alert(`User created successfully! Your assigned user ID is: ${newUserId}`);
 
-            // Refresh the page after user creation
+            // Redirect to user page after successful signup
             setTimeout(() => {
-                window.location.reload();
-            }, 2000);  // 2-second delay before refreshing the page
+                window.location.href = "user.html";
+            }, 2000);
 
         } catch (error) {
-            alert(error.message);
+            alert(error.message);  // Display any errors
         }
     }
 
-    // Delete User Functionality (for user removal)
+    // Function to delete a user
     async function deleteUser(userId) {
         try {
-            // Remove user from Realtime Database
+            // Remove user from the database
             await remove(ref(database, 'users/' + userId));
 
             alert("User deleted successfully!");
 
-            // Refresh the page after user deletion
+            // Reload the page after deletion
             setTimeout(() => {
                 window.location.reload();
             }, 500);
@@ -169,10 +163,9 @@
         }
     }
 
-    // To redirect to sign in page
-
+    // Redirect to sign-in page
     document.getElementById("signInLink").onclick = function (event) {
-        event.preventDefault();  // Prevent the default link behavior
-        window.location.href = "signin.html";  // Redirect to signin.html
+        event.preventDefault();
+        window.location.href = "signin.html";
     };
 </script>

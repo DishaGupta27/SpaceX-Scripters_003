@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h1>FocusFlow</h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-background">
+            <div class="form-content">
+                <div class="heading">
+                    <h2>Create your account.</h2>
+                </div>
+                <div class="form-data">
+                    <form id="signupForm">
+                        <div class="input-group form__group">
+                            <input type="text" id="firstName" class="form__field" placeholder=" " />
+                            <label for="firstName" class="form__label">First Name</label>
+                        </div>
+                        <div class="input-group form__group">
+                            <input type="text" id="lastName" class="form__field" placeholder=" " />
+                            <label for="lastName" class="form__label">Last Name</label>
+                        </div>
+                        <div class="input-group form__group">
+                            <input type="email" id="email" class="form__field" placeholder=" " />
+                            <label for="email" class="form__label">Email</label>
+                        </div>
+                        <div class="input-group form__group">
+                            <input type="password" id="password" class="form__field" placeholder=" " />
+                            <label for="password" class="form__label">Password</label>
+                        </div>
+                        <div class="input-group form__group">
+                            <input type="password" id="confirm-password" class="form__field" placeholder=" " />
+                            <label for="confirm-password" class="form__label">Confirm Password</label>
+                        </div>
+
+                        <div class="button">
+                            <button class="primary-btn" id="submit" type="submit">Submit</button>
+                        </div>
+                        <div class="forget">
+                            <a href="#">Forgot password?</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="signedIn">
+                    <p>Already have an account? <a href="#" id="signInLink">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+</html>
+<script type="module">
+    // Import Firebase SDK functions
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+    import { getDatabase, ref, set, get, update, remove } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCpHkzs4o4iW_XVrHiQjnUbi3EgOlvAJGQ",
+        authDomain: "task-management-f8ae5.firebaseapp.com",
+        databaseURL: "https://task-management-f8ae5-default-rtdb.firebaseio.com",
+        projectId: "task-management-f8ae5",
+        storageBucket: "task-management-f8ae5.appspot.com",
+        messagingSenderId: "94289548334",
+        appId: "1:94289548334:web:f389a4d14b64ae4da63bbf"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Firebase Authentication and Realtime Database
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    // Signup Functionality
+    document.querySelector("#signupForm").addEventListener("submit", signUp);
+
+    async function signUp(event) {
+        event.preventDefault();
+
+        // Collect form data
+        let firstName = document.querySelector("#firstName").value;
+        let lastName = document.querySelector("#lastName").value;
+        let email = document.querySelector("#email").value;
+        let password = document.querySelector("#password").value;
+        let confirmPassword = document.querySelector("#confirm-password").value;
+
+        // Basic validation
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+            alert("All fields are required.");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
+        try {
+            // Get the current user ID count from the Realtime Database
+            const userIdRef = ref(database, 'userIds/currentId');
+            let userIdSnapshot = await get(userIdRef);
+
+            let newUserId;
+            if (userIdSnapshot.exists()) {
+                newUserId = userIdSnapshot.val() + 1; // Increment user ID
+            } else {
+                newUserId = 1; // Start from 1 if no user ID exists
+            }
+
+            // Create user with Firebase Authentication
+            await createUserWithEmailAndPassword(auth, email, password);
+
+            // Store user details with a custom userId in Realtime Database
+            await set(ref(database, 'users/' + newUserId), {
+                firstName: firstName,
+                lastName: lastName,
+                email: email
+            });
+
+            // Update the current user ID count in the database
+            await update(ref(database, 'userIds'), { currentId: newUserId });
+
+            // Show popup for successful user creation
+            alert(`User created successfully! Your assigned user ID is: ${newUserId}`);
+
+            // Redirect to the sign-in page after user creation
+            setTimeout(() => {
+                window.location.href = "signin.html";  // Redirect to signin.html
+            }, 1000);  // 2-second delay before redirecting
+
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    // Delete User Functionality (for user removal)
+    async function deleteUser(userId) {
+        try {
+            // Remove user from Realtime Database
+            await remove(ref(database, 'users/' + userId));
+
+            alert("User deleted successfully!");
+
+            // Refresh the page after user deletion
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+
+        } catch (error) {
+            alert("Error deleting user: " + error.message);
+        }
+    }
+
+    // To redirect to sign in page
+    document.getElementById("signInLink").onclick = function(event) {
+        event.preventDefault();  // Prevent the default link behavior
+        window.location.href = "signin.html";  // Redirect to signin.html
+    };
+</script>

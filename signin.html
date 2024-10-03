@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="signin.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h1>FocusFlow</h1>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="form-background">
+            <div class="form-content">
+                <div class="heading">
+                    <h2>
+                        One account. Any device. Just for you. Sign in to get started.
+                    </h2>
+                </div>
+                <div class="form-data">
+                    <form>
+                        <!-- Email Input with Floating Label -->
+                        <div class="input-group form__group">
+                            <input type="text" class="form__field" placeholder="Email or phone number" name="email"
+                                id="email" required />
+                            <label for="email" class="form__label">Email or phone number</label>
+                        </div>
+
+                        <!-- Password Input with Floating Label -->
+                        <div class="input-group form__group">
+                            <input type="password" class="form__field" placeholder="Password" name="password"
+                                id="password" required />
+                            <label for="password" class="form__label">Password</label>
+                        </div>
+
+                        <div class="radio">
+                            <input type="radio" id="rememberID" />
+                            <label for="rememberID">Remember my ID</label>
+                        </div>
+                        <div>
+                            <button class="primary-btn" type="submit">Next</button>
+                        </div>
+                        <div class="forget">
+                            <a href="#">Find ID</a>
+                            <a href="#" class="new-account">Create account</a>
+                        </div>
+                        <div>
+                            <button class="secondary-btn">Sign in with Google</button>
+                            <button class="secondary-btn">Sign in with QR code</button>
+                        </div>
+                        <div class="signedIn">
+                            <input type="radio" id="staySignedIn" />
+                            <label for="staySignedIn">Stay signed in</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirect to new account creation
+        document.querySelector(".new-account").addEventListener("click", function (event) {
+            event.preventDefault();
+            window.location.href = "signup.html";
+        });
+
+        // Handle form submission and login
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            login(); // Call the login function when form is submitted
+        });
+
+        function login() {
+            let email = document.querySelector("#email").value; // Fetch email input
+            let password = document.querySelector("#password").value; // Fetch password input
+
+            let apiKey = "AIzaSyCpHkzs4o4iW_XVrHiQjnUbi3EgOlvAJGQ"; // Your Firebase API key
+
+            var raw = JSON.stringify({
+                "email": email,
+                "password": password
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                body: raw,
+                headers: {
+                    'Content-Type': 'application/json' // Ensures the request body is in JSON format
+                }
+            };
+
+            fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, requestOptions)
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.error) {
+                        alert(data.error.message); // Show error if login fails
+                    } else {
+                        localStorage.setItem("authToken", data.idToken); // Store authentication token in localStorage
+                        alert("Login successful"); // Notify user of success
+                        window.location.href = "index.html"; // Redirect to the homepage
+                    }
+                })
+                .catch((err) => {
+                    alert("Error during login"); // Catch and alert on fetch error
+                });
+        }
+    </script>
+</body>
+
+</html>

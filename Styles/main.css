@@ -60,7 +60,7 @@ body {
 }
 
 .userIcon {
-    padding-left: 11rem;
+    padding-left: 15rem;
     color: black;
 }
 
@@ -288,13 +288,6 @@ body {
 .task-card button.edit-btn {
     background-color: green;
 }
-
-/* .task-card button.edit-btn:hover {
-    background-color: white;
-    border: 2px solid green;
-    color: black;
-
-} */
 
 .task-card button.delete-btn {
     background-color: #e74c3c;

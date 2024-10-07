@@ -2,468 +2,551 @@
 /* font-family: 'Open Sans', sans-serif; */
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
 /* font-family: 'Raleway', sans-serif; */
 /* Headings, Call-to-actions, Header Navigation */
-h5{
-  background-color:hsl(217, 28%, 15%) ;
-  background-color:hsl(218, 28%, 13%) ;
-  background-color:hsl(216, 53%, 9%) ;
+h5 {
+  background-color: hsl(217, 28%, 15%);
+  background-color: hsl(218, 28%, 13%);
+  background-color: hsl(216, 53%, 9%);
   background-color: hsl(219, 30%, 18%);
   background-color: hsl(176, 68%, 64%);
-  background-color:hsl(198, 60%, 50%) ;
-  background-color:  hsl(0, 100%, 63%);
+  background-color: hsl(198, 60%, 50%);
+  background-color: hsl(0, 100%, 63%);
   background-color: hsl(0, 0%, 100%);
 }
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   font-family: 'Open Sans', sans-serif;
   Font-size: 14px;
-  color:#fff;
-  background-color:hsl(217, 28%, 15%) ;
-}
-h1 h2 h3{
-font-family:'Raleway', sans-serif ;
-}
-img{
-max-width: 100%;
-max-height: 100%;
-}
-ul{
-list-style-type: none;
-}
-nav{
-display: flex;
-justify-content: space-between;
-align-items: center;
-width:85%;
-height:15vh;
-margin:auto;
-}
-.logo{
-width:220px;
-/* height: 70px; */
-/* height:auto; */
-}
-nav ul{
-display: flex;
-}
-nav ul li{
-color: #fff;
-width:100px;
-}
-nav ul li a{
-    text-decoration: none;
-    color: #fff;
-    background-color: #65e2d9;
-    padding:.5rem 1rem ;
-    border-radius: 4px;
-}
-/* ----section-1----- */
-.section-1{
-display: flex;
-flex-direction: column;
-align-items: center;
-text-align: center;
-}
-.intro{
-width:600px;
-margin:auto;
-margin-bottom: 30px;
-}
-.illus{
-width:470px;
-margin-bottom: 30px;
-}
-.intro h1{
-font-size: 2rem;
-line-height: 2.5rem;
-margin-bottom: 25px;
-font-family: 'Raleway',sans-serif;
-}
-.intro p{
-width:500px;
-line-height: 1.6rem;
-font-weight: 700px;
-margin:0 auto 30px;
-}
-#btn{
-width:250px;
-padding:14px;
-outline:none;
-border:none;
-border-radius: 25px;
-background:hsl(176, 68%, 64%) ;
-color:#fff;
-cursor: pointer;
-}
-.curve-bg{
-width:100%;
-height:40vh;
-position: relative;
-top: -210px;
-z-index: -1;
-}
-.card{
-width:100%;
-height: auto;
-background-color: hsl(218, 28%, 13%);
-position: relative;
-top: -210px;
-z-index: -1;
-}
-.cards{
-width:70%;
-min-height: 50vh;
-margin:auto;
-display:flex ;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-text-align: center;
-}
-.card-wrapper{
-margin:30px 0;
-}
-.card-wrapper img{
-width:70px;
-height:auto;
-line-height: 1.5rem;
-margin-bottom: 50px;
-}
-.card-desc{
-width:400px;
-line-height:1.5rem ;
-margin-bottom: 50px;
-}
-.card-desc h2{
-font-size: 1.2rem;
-font-family: 'Raleway' sans-serif;
-margin-bottom: 10px;
-}
-.section-3 img{
-width:550px;
-height:auto;
-}
-.section-3{
-width:85%;
-margin:30px auto 0;
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-wrap: wrap;
-}
-.section-3-desc{
-width: 550px;
-}
-.section-3-desc h1{
-font-size: 2rem;
-width: 300px;
-margin-bottom: 15px;
-font-family:'Raleway', sans-serif;
-}
-.section-3-desc p{
-margin-bottom: 30px;
-}
-.section-3-desc a{
-color: hsl(176, 68%, 64%);
-margin-right: 5px;
-}
-.test-section{
-width:90%;
-min-height: 70vh;
-margin:auto;
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
-align-items: center;
-position: relative;
-}
-.test-section-card{
-width:385px;
-height:200px;
-background: hsl(219, 30%, 18%);
-padding: 25px 15px;
-box-shadow: 2px 2px 3px hsl(217, 27%, 20%);
-z-index: 1;
-
-}
-.test-desc{
-width:345px;
-font-size: 14px;
-line-height: 1.5rem;
-}
-.profile-wrapper{
-width:220px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 30px;
-}
-.profile{
-width: 50px;
-height: 50px;
-background: url(./images/profile-1.jpg);
-background-size: cover;
-background-position: center;
-border-radius: 50%;
-}
-.profile-desc span{
-font-size: 14px;
-color:#f3f3f3;
-}
-.profile-2{
-background: url(./images/profile-2.jpg);
-background-size: cover;
-background-position: center;
-}
-.profile-3{
-background: url(./images/profile-3.jpg);
-background-size: cover;
-background-position: center;
-}
-.test-section::after{
-content: url(./images/bg-quotes.png);
-position: absolute;
-top: 90px;
-left:-10px;
-}
-.sign-up-section{
-width: 60%;
-height: 35vh;
-margin: auto;
-background: hsl(219, 30%, 18%);
-display: flex;
-text-align: center;
-padding: 20px;
-/* z-index: -1; */
-position: relative;
-top:110px;
-box-shadow: 3px 3px 4px rgba(0,0,0,0.5);
-}
-.sign-up-desc h1{
-margin-bottom: 15px;
-}
-form{
-margin-top: 30px;
-cursor: pointer;
-}
-
-input[type="email"]{
-width:500px;
-padding:14px 20px;
-outline: none;
-border: none;
-border-radius: 25px;
-background: #fff;
-margin-right: 25px;
-}
-input[type="submit"]{
-width:200px;
-padding: 14px 20px;
-outline: none;
-border: none;
-color: #fff;
-background: hsl(176, 68%, 64%);
-border-radius: 25px;
-}
-.section-third{
-display: flex;
-flex-direction: column;
-background-color: hsl(216, 53%, 9%);
-color: #fff;
-padding: 200px 100px 30px;
-
-/* margin:40px 0 0 0; */
-}
-.footer1{
-display: flex; 
-justify-content: space-between;
-}
-.footer-one{
-min-width: 40%;
-width:40%;
-}
-.add{
-display: flex;
-align-items: flex-start;
-padding: 20px;
-}
-.add img{
-margin-top: 4px;
-margin-right: 20px;
-}
-.footer-two{
-margin:40px;
-padding: 20px;
-}
-.footer-two p{
- padding: 10px;
-}
-.logo2{
-  width:300px;
-  height:30px;
-}
-.footer2 p{
- padding-top: 20px;
- margin-top: 5px;
- float: right;
-}
-
-@media  screen and (max-width:375px) {
-nav{
-  width:90%;
-}
-.logo{
-  width:70px;
-  height:auto;
-}
-nav ul li{
   color: #fff;
-  width:70px;
-  margin-right: 3px;
-}
-.section-1{
-  width:300px;
-  margin:auto;
-
-}
-.illus{
-  width:350px;
-}
-.intro{
-  width:300px;
-  margin:auto;
-}
-.intro h1{
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-.intro p{
-  width:318px;
-  line-height: 1.5rem;
-}
-#btn{
-  width:200px;
-}
-.curve-bg{
-  display: none;
-}
-.cards{
-  width:85%;
-  
-  margin:250px auto 0;
- 
+  background-color: hsl(217, 28%, 15%);
 }
 
-.card-desc{
-  width:300px;
-  
+h1 h2 h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  height: 15vh;
   margin: auto;
 }
-.card-desc h2{
-margin-bottom: 10px;
-font-size: 1.2rem;
-}
-.card-desc p{
-font-size: 14px;
-width:200px;
-margin: auto;
-}
-.section-3{
-margin-top: -116px;
-/* background-color:hsl(218, 28%, 13%) ; */
-}
-.section-3 img{
-width:300px;
-height:auto;
-}
-.section-3-desc h1{
-font-size: 1rem;
-margin: 15px 0;
-}
-.section-3-desc p{
-font-size: 14px;
-margin-bottom: 30px;
 
-}
-.test-section{
-width: 90%;
-min-height: 100vh;
-margin: 100px auto 0;
-
-}
-.test-section::after{
-top:-30px;
-left:-10px;
-}
-.test-section-card{
-width:320px;
-height: 230px;
-margin-bottom: 25px;
-}
-.test-desc{
-width:310px;
-}
-.sign-up-section{
-width: 90%;
-height:60vh;
-margin:auto;
-position: relative;
-top:130px;
-}
-.sign-up-desc{
-width: 300px;
-}
-.sign-up-desc h1{
-margin-bottom: 15px;
-font-size: 1.2rem;
-}
-input[type="email"]{
-width:300px;
-margin-bottom: 15px;
-}
-input[type="submit"]{
-width:300px;
-}
-.section-third{
-/* padding-top:40px ; */
-padding-left: 30px;
-padding-right: 0;
-}
-.footer1{
-display: flex;
-flex-direction: column;
-}
-.aevi{
-width:80px;
-  height:auto;
-}
-.footer-one{
-
-width:90%;
+.logo {
+  width: 220px;
+  /* height: 70px; */
+  /* height:auto; */
 }
 
-.add{
-padding: 10px;
-}
-.footer2 p{
-font-size: 10px;
-}
-.footer-two{
-  margin:0px;
-  padding: 0px;
-  padding-left: 10px;
- 
+nav ul {
+  display: flex;
 }
 
-.footer2 p{
+nav ul li {
+  color: #fff;
+  width: 100px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #65e2d9;
+  padding: .5rem 1rem;
+  border-radius: 4px;
+}
+
+/* ----section-1----- */
+.section-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.intro {
+  width: 600px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.illus {
+  width: 470px;
+  margin-bottom: 30px;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin-bottom: 25px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.intro p {
+  width: 500px;
+  line-height: 1.6rem;
+  font-weight: 700px;
+  margin: 0 auto 30px;
+}
+
+#btn {
+  width: 250px;
+  padding: 14px;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background: hsl(176, 68%, 64%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.curve-bg {
+  width: 100%;
+  height: 40vh;
+  position: relative;
+  top: -210px;
+  z-index: -1;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  background-color: hsl(218, 28%, 13%);
+  position: relative;
+  top: -210px;
+  z-index: -1;
+}
+
+.cards {
+  width: 70%;
+  min-height: 50vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.card-wrapper {
+  margin: 30px 0;
+}
+
+.card-wrapper img {
+  width: 70px;
+  height: auto;
+  line-height: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.card-desc {
+  width: 400px;
+  line-height: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.card-desc h2 {
+  font-size: 1.2rem;
+  font-family: 'Raleway' sans-serif;
+  margin-bottom: 10px;
+}
+
+.section-3 img {
+  width: 550px;
+  height: auto;
+}
+
+.section-3 {
+  width: 95%;
+  margin: 30px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.section-3-desc {
+  width: 550px;
+}
+
+.section-3-desc h1 {
+  font-size: 2rem;
+  width: 300px;
+  margin-bottom: 15px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.section-3-desc p {
+  margin-bottom: 30px;
+}
+
+.section-3-desc a {
+  color: hsl(176, 68%, 64%);
+  margin-right: 5px;
+}
+
+.test-section {
+  width: 100%;
+  min-height: 70vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+.test-section-card {
+  width: 385px;
+  height: 200px;
+  background: hsl(219, 30%, 18%);
+  padding: 25px 15px;
+  box-shadow: 2px 2px 3px hsl(217, 27%, 20%);
+  z-index: 1;
+
+}
+
+.test-desc {
+  width: 345px;
+  font-size: 14px;
+  line-height: 1.5rem;
+}
+
+.profile-wrapper {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.profile {
+  width: 50px;
+  height: 50px;
+  background: url(./images/profile-1.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.profile-desc span {
+  font-size: 14px;
+  color: #f3f3f3;
+}
+
+.profile-2 {
+  background: url(./images/profile-2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-3 {
+  background: url(./images/profile-3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.test-section::after {
+  content: url(./images/bg-quotes.png);
+  position: absolute;
+  top: 90px;
+  left: -10px;
+}
+
+.sign-up-section {
+  width: 60%;
+  height: 35vh;
+  margin: auto;
+  background: hsl(219, 30%, 18%);
+  display: flex;
+  text-align: center;
+  padding: 20px;
+  /* z-index: -1; */
+  position: relative;
+  top: 110px;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sign-up-desc h1 {
+  margin-bottom: 15px;
+}
+
+form {
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+input[type="email"] {
+  width: 500px;
+  padding: 14px 20px;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  background: #fff;
+  margin-right: 25px;
+}
+
+input[type="submit"] {
+  width: 200px;
+  padding: 14px 20px;
+  outline: none;
+  border: none;
+  color: #fff;
+  background: hsl(176, 68%, 64%);
+  border-radius: 25px;
+}
+
+.section-third {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(216, 53%, 9%);
+  color: #fff;
+  padding: 200px 100px 30px;
+
+  /* margin:40px 0 0 0; */
+}
+
+.footer1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-one {
+  min-width: 40%;
+  width: 40%;
+}
+
+.add {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.add img {
+  margin-top: 4px;
+  margin-right: 20px;
+}
+
+.footer-two {
+  margin: 40px;
+  padding: 20px;
+}
+
+.footer-two p {
+  padding: 10px;
+}
+
+.logo2 {
+  width: 300px;
+  height: 30px;
+}
+
+.footer2 p {
   padding-top: 20px;
-  padding-right: 90px;
-  /* margin-top: 5px; */
-
+  margin-top: 5px;
+  float: right;
 }
+
+@media screen and (max-width:375px) {
+  nav {
+    width: 90%;
+  }
+
+  .logo {
+    width: 70px;
+    height: auto;
+  }
+
+  nav ul li {
+    color: #fff;
+    width: 70px;
+    margin-right: 3px;
+  }
+
+  .section-1 {
+    width: 300px;
+    margin: auto;
+
+  }
+
+  .illus {
+    width: 350px;
+  }
+
+  .intro {
+    width: 300px;
+    margin: auto;
+  }
+
+  .intro h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .intro p {
+    width: 318px;
+    line-height: 1.5rem;
+  }
+
+  #btn {
+    width: 200px;
+  }
+
+  .curve-bg {
+    display: none;
+  }
+
+  .cards {
+    width: 85%;
+
+    margin: 250px auto 0;
+
+  }
+
+  .card-desc {
+    width: 300px;
+
+    margin: auto;
+  }
+
+  .card-desc h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .card-desc p {
+    font-size: 14px;
+    width: 200px;
+    margin: auto;
+  }
+
+  .section-3 {
+    margin-top: -116px;
+    /* background-color:hsl(218, 28%, 13%) ; */
+  }
+
+  .section-3 img {
+    width: 300px;
+    height: auto;
+  }
+
+  .section-3-desc h1 {
+    font-size: 1rem;
+    margin: 15px 0;
+  }
+
+  .section-3-desc p {
+    font-size: 14px;
+    margin-bottom: 30px;
+
+  }
+
+  .test-section {
+    width: 90%;
+    min-height: 100vh;
+    margin: 100px auto 0;
+
+  }
+
+  .test-section::after {
+    top: -30px;
+    left: -10px;
+  }
+
+  .test-section-card {
+    width: 320px;
+    height: 230px;
+    margin-bottom: 25px;
+  }
+
+  .test-desc {
+    width: 310px;
+  }
+
+  .sign-up-section {
+    width: 90%;
+    height: 60vh;
+    margin: auto;
+    position: relative;
+    top: 130px;
+  }
+
+  .sign-up-desc {
+    width: 300px;
+  }
+
+  .sign-up-desc h1 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+  }
+
+  input[type="email"] {
+    width: 300px;
+    margin-bottom: 15px;
+  }
+
+  input[type="submit"] {
+    width: 300px;
+  }
+
+  .section-third {
+    /* padding-top:40px ; */
+    padding-left: 30px;
+    padding-right: 0;
+  }
+
+  .footer1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aevi {
+    width: 80px;
+    height: auto;
+  }
+
+  .footer-one {
+
+    width: 90%;
+  }
+
+  .add {
+    padding: 10px;
+  }
+
+  .footer2 p {
+    font-size: 10px;
+  }
+
+  .footer-two {
+    margin: 0px;
+    padding: 0px;
+    padding-left: 10px;
+
+  }
+
+  .footer2 p {
+    padding-top: 20px;
+    padding-right: 90px;
+    /* margin-top: 5px; */
+
+  }
 }

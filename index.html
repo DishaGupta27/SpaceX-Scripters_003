@@ -2,98 +2,203 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="./Styles/index.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="stylesheet" href="./Styles/index.css" />
+    <title>
+        Task Master
+    </title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="./Images/logo.webp" alt="Logo">
-                Task
-            </div>
-            <ul>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Apps</a></li>
-                <li><a href="#">Premium</a></li>
-                <li><a href="#">Help Center</a></li>
-            </ul>
-            <div class="nav-btns">
-                <a href="#">Sign In</a>
-                <a href="#" class="sign-up">Sign Up for Free</a>
-            </div>
-        </nav>
-    </header>
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Stay Organized <br>Stay Creative</h1>
-            <p>Join millions of people to capture ideas, organize life, and do something creative every day.</p>
-            <div class="hero-buttons">
-                <a href="#" class="get-started">Get Started - It's Free</a>
-                <a href="#" class="download">Download</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="https://d107mjio2rjf74.cloudfront.net/sites/res/home/common/header.png" alt="Task Management">
-        </div>
-    </section>
-    <section class="layout-section">
-        <div class="left-section">
-            <img src="https://d107mjio2rjf74.cloudfront.net/sites/res/home/tick/feature/feature-1.png"
-                alt="Mobile Interface">
-        </div>
-        <div class="text-section">
-            <h2>Organize everything in life</h2>
-            <p>Whether it's a work-related task or a personal goal, TickTick is here to help you manage all your to-dos.
+    <nav>
+        <!-- <h1>TaskMaster</h1> -->
+        <img class="logo" src="./images/logo.png" alt="" />
+        <ul>
+            <!-- <li>Features</li>
+        <li>Team</li> -->
+            <li> <a href="signin.html">Log In</a></li>
+        </ul>
+    </nav>
+    <section class="section-1">
+        <img src="./images/illustration-intro.png" alt="" class="illus" />
+        <div class="intro">
+            <h1>Prioritize Tasks, Boost Productivity, Achieve Your Daily Goals</h1>
+            <p>
+                Transform your daily routine with our intuitive task organizer. Stay focused, streamline your workload,
+                and conquer your to-do list like never before. Empower yourself to achieve more every day!
             </p>
+            <button onclick="window.location.href='signin.html'" id="btn">Get Started</button>
+        </div>
+        <img src="./images/bg-curvy-desktop.svg" alt="" srcset="" class="curve-bg" />
+    </section>
+
+    <!-- ----card-section---- -->
+    <section class="card">
+        <div class="cards">
+            <div class="card-wrapper">
+                <img src="./images/icon-access-anywhere.svg" alt="" srcset="" class="icon-1" />
+                <div class="card-desc">
+                    <h2>Organize Your Tasks Effortlessly</h2>
+                    <p>
+                        With our user-friendly interface, customize your tasks and categorize them for easy access.
+                        Never miss a deadline again!
+                    </p>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <img src="./images/icon-security.svg" alt="" srcset="" />
+                <div class="card-desc">
+                    <h2>Collaborate with Friends and Colleagues</h2>
+                    <p>
+                        Share your to-do lists with others, enabling efficient teamwork and collective productivity.
+                        Boost accountability and keep everyone on the same page!
+                    </p>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <img src="./images/icon-collaboration.svg" alt="" srcset="" />
+                <div class="card-desc">
+                    <h2>Set Goals and Track Progress</h2>
+                    <p>
+                        Define your short-term and long-term goals, and monitor your achievements as you get closer to
+                        your aspirations. Celebrate your milestones!
+                    </p>
+                </div>
+            </div>
+            <div class="card-wrapper">
+                <img src="./images/icon-any-file.svg" alt="" srcset="" />
+                <div class="card-desc">
+                    <h2>Reminders and Notifications</h2>
+                    <p>
+                        Create reminders for important tasks so you can focus on what matters most. Receive timely
+                        alerts to keep you on track, wherever you are!
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="reminder-section"></section>
-    <div class="reminder-text">
-        <h2>Get reminded anytime, anywhere</h2>
-        <p>Set a reminder to ease your mind off worrying about missing deadlines from now on.</p>
-    </div>
-    <div class="calendar-section">
-        <div class="calendar">
-            <div class="calendar-header">
-                <h3>October 2024</h3>
-            </div>
-            <div class="calendar-body">
-                <div class="day">S</div>
-                <div class="day">M</div>
-                <div class="day">T</div>
-                <div class="day">W</div>
-                <div class="day">T</div>
-                <div class="day">F</div>
-                <div class="day">S</div>
-                <div class="date"></div>
-                <div class="date"></div>
-                <div class="date"></div>
-                <div class="date">1</div>
-                <div class="date">2</div>
-                <div class="date">3</div>
-                <div class="date">4</div>
-                <div class="date">5</div>
-                <div class="date">6</div>
-                <div class="date">7</div>
-                <div class="date">8</div>
-                <div class="date highlighted">9</div>
-                <div class="date">10</div>
-                <div class="date">11</div>
-                <div class="date">12</div>
-                <div class="date">13</div>
-                <div class="date">14</div>
-            </div>
-            <div class="reminder-options">
-                <p><span>✔</span> Set task reminders</p>
-                <p><span>✔</span> Snooze and repeat</p>
+    <!-- ----Productive-section---- -->
+    <section class="section-3">
+        <img src="./images/illustration-stay-productive.png" alt="" />
+        <div class="section-3-desc">
+            <h1>Stay productive, wherever you are</h1>
+            <p>
+                Don’t let your location hinder your access to important files. Fylo ensures you have everything you need
+                for seamless file storage.
+            </p>
+            <p>
+                Easily share files and collaborate with friends, family, and colleagues in real-time, all without the
+                hassle of email attachments.
+            </p>
+            <a href="./signin.html">See how taskMaster works</a><i class="fas fa-arrow-circle-right"></i>
+        </div>
+    </section>
+    <section class="test-section">
+        <div class="test-section-card">
+            <div class="test-desc">
+                <p>
+                    Since integrating TaskMaster, our team not only collaborates more effectively but also accomplishes
+                    tasks much faster. It's been a game-changer for our workflow!
+                </p>
+                <div class="profile-wrapper">
+                    <div class="profile profile-1"></div>
+                    <div class="profile-desc">
+                        <h4>Satish Patel</h4>
+                        <span>Founder & CEO, Huddle</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+
+        <div class="test-section-card">
+            <div class="test-desc">
+                <p>
+                    With TaskMaster, our communication improved drastically. The ability to share and edit files in
+                    real-time has made our project management seamless.
+                </p>
+                <div class="profile-wrapper">
+                    <div class="profile profile-2"></div>
+                    <div class="profile-desc">
+                        <h4>Bruce McKenzie</h4>
+                        <span>Founder & CEO, Huddle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section-card">
+            <div class="test-desc">
+                <p>
+                    TaskMaster has transformed our remote work experience. We now have a centralized hub for all our
+                    documents, and collaboration has never been easier.
+                </p>
+                <div class="profile-wrapper">
+                    <div class="profile profile-3"></div>
+                    <div class="profile-desc">
+                        <h4>Iva Boyd</h4>
+                        <span>Founder & CEO, Huddle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- promo-section -->
+    <div class="sign-up-section">
+        <div class="sign-up-desc">
+            <h1>Get early access today</h1>
+            <p>
+                It only takes a minute to sign up and our free starter tier is
+                extremely generous. If you have any questions, our support team would
+                be happy to help you.
+            </p>
+            <form action="./signin.html">
+                <input type="email" name="" id="" placeholder="e.g assdffgghjj@gmail.com" />
+                <input type="submit" value="Get Started For Free" />
+            </form>
+        </div>
+    </div>
+    <div class="section-third">
+        <div class="footer1">
+            <div class="footer-one">
+                <img class="logo2" src="./images/logo.png" alt="" srcset="" class="aevi" />
+                <div class="add">
+                    <img src="./images/icon-location.svg" alt="" srcset="" />
+                    <p>
+                        Signing up is quick and easy! Our free starter tier offers plenty of features to get you
+                        started. If you have any questions, our dedicated support team is here to assist you.
+                    </p>
+                </div>
+                <div class="add">
+                    <img src="./images/icon-phone.svg" alt="" srcset="" />
+                    <p>+1-543-123-4567</p>
+                </div>
+                <div class="add">
+                    <img src="./images/icon-email.svg" alt="" srcset="" />
+                    <p>TaskMaster@huddle.com</p>
+                </div>
+            </div>
+            <div class="footer-two">
+                <p>About Us</p>
+                <p>What We Do</p>
+                <p>FAQ</p>
+            </div>
+            <div class="footer-two">
+                <p>Career</p>
+                <p>Blog</p>
+                <p>Contact Us</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
 </body>
 
 </html>

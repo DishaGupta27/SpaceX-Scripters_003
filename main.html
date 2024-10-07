@@ -1,48 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management</title>
-    <link rel="stylesheet" href="/Styles/main.css">
+    <title>Task Management Dashboard</title>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./Styles/main.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Task Management System</h1>
+    <div class="dashboard">
+        <!-- Dashboard Header -->
+        <header class="dashboard-header">
+            <img class="img-logo" src="./images/logo.png" alt="logo">
+            <!-- <h1 style="padding-left: 5px;">Task Master</h1> -->
+            <div class="nav-icons">
+                <!-- Create Task -->
+                <div id="create-task" class="nav-item">
+                    <i class="fas fa-plus"></i>
+                    <span>Create Task</span>
+                </div>
 
-        <div class="input-container">
-            <input type="text" id="taskInput" placeholder="Enter task" />
-            <input type="text" id="assignedUserInput" placeholder="Assigned to" />
-            <label for="dueDateInput">Due Date and Time:</label>
-            <input type="datetime-local" id="dueDateInput" />
-            <select id="priorityInput">
-                <option value="Low">Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-            </select>
-            <button onclick="addTask()">Add Task</button>
-        </div>
+                <!-- Show Task -->
+                <div id="show-task" class="nav-item">
+                    <i class="fas fa-tasks"></i>
+                    <span>Show Task</span>
+                </div>
+                <div id="toggleView" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Graph View</span>
+                </div>
+            </div>
+            <div class="userIcon">
+                <i class="fas fa-user"></i>
 
-        <div class="search-sort-filter">
-            <input type="text" id="searchInput" placeholder="Search tasks" oninput="searchTasks()" />
-            <select id="sortCriteria">
-                <option value="priority">Sort by Priority</option>
-                <option value="dueDate">Sort by Due Date</option>
-                <option value="alphabetical">Sort Alphabetically</option>
-                <option value="creationDate">Sort by Creation Date</option>
-            </select>
-            <button onclick="sortTasks()">Sort Tasks</button>
-            <select id="filterCriteria">
-                <option value="all">All Tasks</option>
-                <option value="completed">Completed Tasks</option>
-                <option value="incomplete">Incomplete Tasks</option>
-            </select>
-            <button onclick="filterTasks()">Filter Tasks</button>
-        </div>
+            </div>
+            <div class="bellIcon">
+                <i class="fas fa-bell notification-icon"></i>
 
-        <ul id="taskList"></ul>
+            </div>
+            <div class="free-template-btn">
+                <a class="logout" href="./index.html">Logout</a>
+
+            </div>
+
     </div>
 
-    <script src="/Scripts/main.js"></script>
+
+    <!-- <span>Profile</span> -->
+    </div>
+    </div>
+    </header>
+
+    <div class="dashboard-body">
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="chartView">
+                <div id="listView">
+                    <!-- Your list view here -->
+                </div>
+
+                <canvas id="taskStatusChart" class="taskStatusChart" style="display: none;"></canvas>
+                <br>
+                <canvas id="taskStatusChart1" class="taskStatusChart" style="display: none;"></canvas>
+                <br>
+                <canvas id="taskStatusChart2" class="taskStatusChart" style="display: none;"></canvas>
+            </div>
+            <section class="today-task" id="taskToday">
+                <div class="task-options">
+                    <h2>Today Task</h2>
+
+                    <div class="sort-task-options">
+                        <label for="sort-tasks">Sort by:</label>
+                        <select id="sort-tasks">
+                            <option value="default">Default</option>
+                            <option value="priority">Priority(H-L)</option>
+                            <option value="priority1">Priority(L-H)</option>
+                            <option value="start">Start Date</option>
+                            <option value="end">End Date</option>
+                        </select>
+
+                        <label for="filter-priority">Filter by Priority:</label>
+                        <select id="filter-priority">
+                            <option value="all">All</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <p class="para">Check your daily tasks and schedule</p>
+                <button class="task-btn">Today's Schedule</button>
+                <!-- <div id="profile-section"></div> -->
+
+                <!-- Task List will be populated here when "Show Task" is clicked -->
+                <div id="task-display" class="task-list">
+                    <!-- Tasks will be injected here dynamically -->
+                </div>
+            </section>
+        </main>
+    </div>
+    </div>
+
+    <!-- Create Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <!-- <h2>Create a New Task</h2> -->
+            <form id="task-form">
+                <label for="title">Task Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Task Description:</label>
+                <textarea id="description" name="description" required></textarea>
+
+                <label for="start">Start Date and Time:</label>
+                <input type="datetime-local" id="start" name="start" required>
+
+                <label for="end">End Date and Time:</label>
+                <input type="datetime-local" id="end" name="end" required>
+
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="to-do">To-do</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+
+                <label for="priority">Priority:</label>
+                <select id="priority" name="priority" required>
+                    <option value="low">Low</option>
+                    <!-- <option value="medium">Medium</option> -->
+                    <option value="high">High</option>
+                </select>
+
+                <button type="submit" class="submit-btn">Add Task</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./Scripts/main.js"></script>
 </body>
+
 </html>

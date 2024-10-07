@@ -26,27 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const isValidForm = (title, description, start, end) => {
         return title.trim() !== '' && description.trim() !== '' && start.trim() !== '' && end.trim() !== '';
     };
-
-    // Open the modal when "Create Task" is clicked
     createTaskBtn.addEventListener('click', () => {
         modal.style.display = 'flex';
         form.reset();
         editIndex = -1; // Reset edit mode
     });
-
-    // Close the modal when the close button (x) is clicked
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
     });
-
-    // Close the modal when clicking outside the modal content
     window.addEventListener('click', (e) => {
         if (e.target === modal) {
             modal.style.display = 'none';
         }
     });
-
-    // Handle form submission for both add and edit tasks
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -76,13 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTasks(tasks);
         form.reset();
         modal.style.display = 'none';
-
-        // Refresh task display immediately after creating or editing task
         showTasks();
     });
-
-
-    // Show stored tasks when "Show Task" is clicked
     showTaskBtn.addEventListener('click', () => {
         showTasks();
     });
@@ -129,14 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // if (tasks.length === 0) {
-        //     taskDisplay.innerHTML = '<p>No tasks available.</p>';
-        //     return;
-        // }
-
         sortedFilteredTasks.forEach((task, index) => {
             const taskElement = document.createElement('div');
             taskElement.classList.add('task-card');
+            console.log("task", task.status)
             taskElement.innerHTML = `
                 <h3>${task.title}</h3>
                 <p>${task.description}</p>
@@ -148,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="edit-btn" data-index="${index}">Edit</button>
                     <button class="delete-btn" data-index="${index}">Delete</button>
                     <input type="checkbox" class="complete-checkbox" 
-                ${task.completed ? 'checked' : ''} 
+                ${task.status == "completed" ? 'checked' : ''} 
                 data-index="${index}" />
             <label>Completed</label>
                 </div>
@@ -163,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
             taskDisplay.appendChild(taskElement);
         });
 
-        // Add event listeners for delete and edit buttons
         const deleteButtons = document.querySelectorAll('.delete-btn');
         const editButtons = document.querySelectorAll('.edit-btn');
 
@@ -184,40 +166,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const toggleComplete = (index) => {
         let tasks = getStoredTasks();
-        tasks[index].completed = !tasks[index].completed; // Toggle the completed status
-        saveTasks(tasks); // Save the updated tasks
-        if (tasks[index].completed) {
+        if (tasks[index].status == "completed") {
+            tasks[index].status = "in-progress"
+            saveTasks(tasks);
+            showTasks()
+        }
+        else {
+            tasks[index].status = "completed"
+            saveTasks(tasks);
+            showTasks()
+        }
+        if (tasks[index].status == "completed") {
             alert(`Task "${tasks[index].title}" has been marked as completed!`);
         } else {
             alert(`Task "${tasks[index].title}" has been marked as not completed!`);
         }
-
-        // showTasks(); // Re-render tasks to reflect changes
     };
     // Function to delete a task
     const deleteTask = (index) => {
         const tasks = getStoredTasks();
-        tasks.splice(index, 1); // Remove task at the specified index
+        tasks.splice(index, 1);
         saveTasks(tasks);
-        showTasks(); // Refresh task display
+        showTasks();
     };
 
     // Function to edit a task
     const editTask = (index) => {
         const tasks = getStoredTasks();
         const task = tasks[index];
-
-        // Populate the form with the task's existing data
         document.getElementById('title').value = task.title;
         document.getElementById('description').value = task.description;
         document.getElementById('start').value = task.start;
         document.getElementById('end').value = task.end;
         document.getElementById('priority').value = task.priority;
-
-        // Set the edit index to know which task is being edited
         editIndex = index;
-
-        // Open the modal to allow task editing
         modal.style.display = 'flex';
     };
 
@@ -245,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         tasks.forEach(task => {
             if (task.status === 'to-do') toDoCount++;
             else if (task.status === 'in-progress') inProgressCount++;
-            else if (task.status === 'done') doneCount++;
+            else if (task.status === 'completed') doneCount++;
         });
 
         return [toDoCount, inProgressCount, doneCount];
@@ -272,28 +254,14 @@ document.addEventListener('DOMContentLoaded', () => {
             data: {
                 labels: ['To Do', 'In Progress', 'Completed'],
                 datasets: [{
+                    label: "Line Chart",
                     data: [toDoCount, inProgressCount, doneCount],
                     backgroundColor: ['#FF6384', '#36A2EB', '#4BC0C0'],
                     hoverBackgroundColor: ['#FF6384', '#36A2EB', '#4BC0C0']
                 }]
             },
             options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,  // Enable the title
-                        text: 'Line Chart',  // Text of the title
-                        font: {
-                            size: 20, // Font size for the title
-                            weight: 'bold' // Font weight for the title
-                        },
-                        color: '#333',  // Title color
-                        padding: {
-                            top: 10,
-                            bottom: 30
-                        }
-                    }
-                }
+                responsive: true
             }
         });
         taskStatusChartInstance1 = new Chart(ctx1, {
@@ -301,28 +269,14 @@ document.addEventListener('DOMContentLoaded', () => {
             data: {
                 labels: ['To Do', 'In Progress', 'Completed'],
                 datasets: [{
+                    label: "Bar Chart",
                     data: [toDoCount, inProgressCount, doneCount],
                     backgroundColor: ['#FF6384', '#36A2EB', '#4BC0C0'],
                     hoverBackgroundColor: ['#FF6384', '#36A2EB', '#4BC0C0']
                 }]
             },
             options: {
-                responsive: true,
-                plugins: {
-                    title: {
-                        display: true,  // Enable the title
-                        text: 'Bar Chart',  // Text of the title
-                        font: {
-                            size: 20, // Font size for the title
-                            weight: 'bold' // Font weight for the title
-                        },
-                        color: '#333',  // Title color
-                        padding: {
-                            top: 10,
-                            bottom: 30
-                        }
-                    }
-                }
+                responsive: true
             }
         });
 
@@ -340,13 +294,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 responsive: true,
                 plugins: {
                     title: {
-                        display: true,  // Enable the title
-                        text: 'Pie Chart',  // Text of the title
+                        display: true,
+                        text: 'Pie Chart',
                         font: {
-                            size: 20, // Font size for the title
-                            weight: 'bold' // Font weight for the title
+                            size: 20,
+                            weight: 'bold'
                         },
-                        color: '#333',  // Title color
+                        color: '#333',
                         padding: {
                             top: 10,
                             bottom: 30
@@ -373,7 +327,6 @@ document.addEventListener('DOMContentLoaded', () => {
             taskToday.style.display = 'block';
 
 
-
         } else {
             listView.style.display = 'none';
             graphView.style.display = 'block';
@@ -382,7 +335,8 @@ document.addEventListener('DOMContentLoaded', () => {
             taskToday.style.display = 'none';
 
 
-            renderTaskStatusChart(); // Ensure graph renders when shown
+
+            renderTaskStatusChart();
         }
     });
 });

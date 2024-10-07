@@ -7,14 +7,9 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: hsl(217, 28%, 15%);
     transition: background-color 0.3s, color 0.3s;
 }
-
-/* body.dark-mode {
-    background-color: #1e1e1e;
-    color: #f4f4f4;
-} */
 
 .dashboard {
     display: flex;
@@ -28,15 +23,16 @@ body {
     align-items: center;
     width: 100%;
     padding: 10px;
-    background-color: #a283d4;
-    color: white;
+    /* background-color: #a283d4; */
+    background-color: rgb(222, 231, 228);
+    /* color: white; */
     border-radius: 10px;
     transition: background-color 0.3s;
 }
 
-/* body.dark-mode .dashboard-header {
-    background-color: #333;
-} */
+.nav-item {
+    color: black;
+}
 
 .dashboard-header h1 {
     font-size: 24px;
@@ -52,22 +48,9 @@ body {
     height: 24px;
     margin-right: 20px;
     cursor: pointer;
-    color: white;
 }
 
-/* .header-icons .notification-icon,
-.header-icons .moon-icon {
-    font-size: 20px;
-} */
-
-/* .header-icons .notification-icon:hover,
-.header-icons .moon-icon:hover {
-    color: #7035B2;
-} */
-
 .free-template-btn {
-    background-color: #7035B2;
-    color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -78,18 +61,21 @@ body {
 
 .userIcon {
     padding-left: 11rem;
-}
-
-.img-logo {
-    border-radius: 2rem;
+    color: black;
 }
 
 .bellIcon {
     padding-left: 2rem;
+    color: black;
 }
 
 .free-template-btn:hover {
-    background-color: #5e2e8c;
+    background-color: aquamarine;
+}
+
+.free-template-btn {
+    background-color: white;
+    border: 1px solid black;
 }
 
 .dashboard-body {
@@ -99,19 +85,6 @@ body {
     margin-top: 20px;
 }
 
-/* Sidebar styling */
-.sidebar {
-    width: 200px;
-    background-color: #a283d4;
-    border-radius: 10px;
-    padding: 20px 0;
-    transition: background-color 0.3s;
-}
-
-/* body.dark-mode .sidebar {
-    background-color: #444;
-} */
-
 /* Remove list item markers and adjust layout */
 .nav-icons {
     padding: 0;
@@ -120,8 +93,9 @@ body {
 }
 
 .logout {
-    color: white;
+    color: black;
     text-decoration: none;
+
 }
 
 /* Sidebar item styling */
@@ -129,9 +103,10 @@ body {
 .select-view {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 6px 20px;
     cursor: pointer;
-    color: white;
+    /* color: white; */
+    color: black;
     font-size: 16px;
     transition: background-color 0.3s;
 }
@@ -140,23 +115,22 @@ body {
     display: flex;
 }
 
+
 .nav-icons .nav-item:hover,
 .select-view:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: aquamarine;
+    border-radius: 18px;
+
 }
 
 .sort-task-options {
     margin-left: 45rem;
+    color: white;
 }
 
 .task-options {
     display: flex;
 }
-
-/* body.dark-mode .nav-icons .nav-item:hover,
-body.dark-mode .select-view:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-} */
 
 /* Sidebar icons styling */
 .nav-icons .nav-item i {
@@ -184,11 +158,6 @@ body.dark-mode .select-view:hover {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* body.dark-mode .select-view select {
-    background-color: #555;
-    color: #f4f4f4;
-} */
-
 .other-views-header {
     color: white;
     font-size: 16px;
@@ -202,38 +171,50 @@ body.dark-mode .select-view:hover {
     margin-left: 20px;
 }
 
-/* body.dark-mode .other-views-header {
-    background-color: rgba(255, 255, 255, 0.2);
-} */
-
 /* Main content styling */
 .main-content {
     flex-grow: 1;
     padding: 20px;
-    background-color: white;
+    background-color: hsl(217, 28%, 15%);
     border-radius: 10px;
     margin-left: 20px;
     transition: background-color 0.3s, color 0.3s;
     margin-right: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 1px solid grey;
 }
 
-/* body.dark-mode .main-content {
-    background-color: #333;
-    color: #f4f4f4;
-} */
+#sort-tasks {
+    text-decoration: none;
+    border: none;
+    padding: 0.2rem;
+    border-radius: 5px;
+    background: aquamarine;
+}
+
+#filter-priority {
+    text-decoration: none;
+    border: none;
+    padding: 0.2rem;
+    border-radius: 5px;
+    background-color: aquamarine;
+}
 
 .today-task h2 {
     font-size: 18px;
-    color: #7035B2;
+    /* color: #7035B2; */
+    color: white;
 }
 
-/* body.dark-mode .today-task h2 {
-    color: #ffa500;
-    /* Example color change */
+.para {
+    color: white;
+}
+
 
 .task-btn {
-    background-color: #7035B2;
-    color: white;
+    /* background-color: #7035B2; */
+    background-color: aquamarine;
+    color: black;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -243,35 +224,31 @@ body.dark-mode .select-view:hover {
 }
 
 .task-btn:hover {
-    background-color: #5e2e8c;
+    /* background-color: #5e2e8c; */
+    background-color: white;
+
 }
-
-/* body.dark-mode .task-btn {
-    background-color: #555;
-} */
-
-/* body.dark-mode .task-btn:hover {
-    background-color: #777;
-} */
 
 .task-list {
     margin-top: 20px;
 }
 
+.task-list p {
+    color: white;
+}
+
 .task-card {
-    background-color: #f9f9f9;
+    color: #f9f9f9;
+    background-color: hsl(219, 30%, 18%);
     padding: 15px;
     margin: 10px 0;
     border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border: 2px solid hsl(217, 12%, 57%);
     transition: background-color 0.3s, color 0.3s;
     position: relative;
+
 }
 
-/* body.dark-mode .task-card {
-    background-color: #555;
-    color: #f4f4f4;
-} */
 .taskStatusChart {
     width: 400px;
     height: 400px;
@@ -279,16 +256,19 @@ body.dark-mode .select-view:hover {
     margin: 0 auto;
 }
 
+#taskStatusChart,
+#taskStatusChart1,
+#taskStatusChart2 {
+    background-color: white;
+    padding: 15px;
+}
+
 
 .task-card h3 {
     font-size: 18px;
-    color: #7035B2;
+    color: aquamarine;
     margin-bottom: 10px;
 }
-
-/* body.dark-mode .task-card h3 {
-    color: #ffa500;
-} */
 
 .task-card p {
     margin-bottom: 8px;
@@ -305,9 +285,16 @@ body.dark-mode .select-view:hover {
     transition: background-color 0.3s;
 }
 
-.task-card button.edit-btn:hover {
-    background-color: #5e2e8c;
+.task-card button.edit-btn {
+    background-color: green;
 }
+
+/* .task-card button.edit-btn:hover {
+    background-color: white;
+    border: 2px solid green;
+    color: black;
+
+} */
 
 .task-card button.delete-btn {
     background-color: #e74c3c;
@@ -316,22 +303,6 @@ body.dark-mode .select-view:hover {
 .task-card button.delete-btn:hover {
     background-color: #c0392b;
 }
-
-/* body.dark-mode .task-card button.edit-btn {
-    background-color: #555;
-} */
-
-/* body.dark-mode .task-card button.edit-btn:hover {
-    background-color: #777;
-} */
-
-/* body.dark-mode .task-card button.delete-btn {
-    background-color: #c0392b;
-} */
-
-/* body.dark-mode .task-card button.delete-btn:hover {
-    background-color: #a93226;
-} */
 
 .progress-bar {
     background-color: #ddd;
@@ -346,10 +317,6 @@ body.dark-mode .select-view:hover {
     height: 100%;
 }
 
-/* body.dark-mode .progress {
-    background-color: #ffa500;
-} */
-
 .profile-section {
     width: 200px;
     margin-left: 20px;
@@ -363,18 +330,9 @@ body.dark-mode .select-view:hover {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* body.dark-mode .profile-card {
-    background-color: #444;
-    color: #f4f4f4;
-} */
-
 .profile-card h3 {
     color: #7035B2;
 }
-
-/* body.dark-mode .profile-card h3 {
-    color: #ffa500;
-} */
 
 .hire-btn {
     background-color: #7035B2;
@@ -389,14 +347,6 @@ body.dark-mode .select-view:hover {
 .hire-btn:hover {
     background-color: #5e2e8c;
 }
-
-/* body.dark-mode .hire-btn {
-    background-color: #555;
-} */
-
-/* body.dark-mode .hire-btn:hover {
-    background-color: #777;
-} */
 
 /* Modal styling */
 .modal {
@@ -413,19 +363,16 @@ body.dark-mode .select-view:hover {
 }
 
 .modal-content {
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: hsl(219, 30%, 18%);
     padding: 20px;
     border-radius: 10px;
     width: 400px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     transition: background-color 0.3s, color 0.3s;
-}
 
-/* body.dark-mode .modal-content {
-    background-color: #333;
-    color: #f4f4f4;
-} */
+}
 
 .close-btn {
     position: absolute;
@@ -433,12 +380,9 @@ body.dark-mode .select-view:hover {
     right: 10px;
     font-size: 24px;
     cursor: pointer;
-    color: #7035B2;
+    color: aquamarine;
 }
 
-/* body.dark-mode .close-btn {
-    color: #ffa500;
-} */
 
 .modal-content h2 {
     margin-bottom: 20px;
@@ -447,12 +391,9 @@ body.dark-mode .select-view:hover {
 .modal-content label {
     display: block;
     margin-bottom: 5px;
-    color: #7035B2;
+    color: aquamarine;
+    /* color: white; */
 }
-
-/* body.dark-mode .modal-content label {
-    color: #ffa500;
-} */
 
 .modal-content input,
 .modal-content textarea,
@@ -465,17 +406,10 @@ body.dark-mode .select-view:hover {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* body.dark-mode .modal-content input,
-body.dark-mode .modal-content textarea,
-body.dark-mode .modal-content select {
-    background-color: #555;
-    color: #f4f4f4;
-    border: 1px solid #777;
-} */
-
 .submit-btn {
-    background-color: #7035B2;
-    color: white;
+    /* background-color: #7035B2; */
+    background-color: aquamarine;
+    color: black;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -485,72 +419,69 @@ body.dark-mode .modal-content select {
 }
 
 .submit-btn:hover {
-    background-color: #5e2e8c;
+    background-color: white;
 }
 
-/* body.dark-mode .submit-btn {
-    background-color: #555;
-} */
-
-/* body.dark-mode .submit-btn:hover {
-    background-color: #777;
-} */
-
-/* Dark Mode */
-/* .dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-} */
-
-/* Notification Bell Animation */
-/* .notify {
-    animation: bellRing 0.5s ease;
-} */
-
-/* Dark mode styles */
-/* .dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-} */
-
-/* .dark-mode .task-card {
-    background-color: #333;
-    border: 1px solid #555;
-} */
-
-/* .dark-mode button {
-    background-color: #444;
-    color: #fff;
-} */
-
-/* .notify {
-    animation: bellRing 0.5s ease;
+.img-logo {
+    width: 150px;
+    height: auto;
+    /* color: white; */
+    /* background-color: white; */
 }
 
-@keyframes bellRing {
-    0% {
-        transform: rotate(0);
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 10px;
     }
 
-    20% {
-        transform: rotate(-15deg);
+    .dashboard-header {
+        flex-direction: column;
+        align-items: center;
     }
 
-    40% {
-        transform: rotate(10deg);
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
     }
 
-    60% {
-        transform: rotate(-10deg);
+    .dashboard-body {
+        flex-direction: column;
     }
 
-    80% {
-        transform: rotate(5deg);
+    .main-content,
+    .profile-section {
+        width: 100%;
+        margin: 0;
     }
 
-    100% {
-        transform: rotate(0);
+    .sort-task-options {
+        margin-left: 0;
     }
-} */
+}
 
-/* You can add more dark mode styles for various elements */
+/* For mobile phones */
+@media (max-width: 576px) {
+    .dashboard-header h1 {
+        font-size: 20px;
+    }
+
+    .free-template-btn {
+        margin-left: 0;
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .nav-icons {
+        justify-content: center;
+    }
+
+    .task-card {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .profile-section {
+        margin-left: 0;
+    }
+}
